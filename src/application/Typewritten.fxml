@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="primaryStage" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TypewrittenController">
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblStatus" focusTraversable="false" prefHeight="18.0" prefWidth="766.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <top>
+      <MenuBar fx:id="mnuBar">
+        <menus>
+          <Menu fx:id="mnuFile" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="mnuNew" mnemonicParsing="false" onAction="#checkNew" text="New">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="mnuOpen" mnemonicParsing="false" onAction="#openFile" text="Open">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="mnuSave" mnemonicParsing="false" onAction="#checkSaved" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="mnuSaveAs" mnemonicParsing="false" onAction="#saveAsFile" text="Save As...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="mnuQuit" mnemonicParsing="false" onAction="#closeFile" text="Quit">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu fx:id="mnuEdit" mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="mnuUndo" mnemonicParsing="false" onAction="#undoAction" text="Undo">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="mnuRedo" mnemonicParsing="false" onAction="#redoAction" text="Redo">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+            <Menu fx:id="mnuOptions" mnemonicParsing="false" text="Options">
+              <items>
+                  <Menu fx:id="mnuTheme" mnemonicParsing="false" text="Theme">
+                    <items>
+                      <MenuItem fx:id="mnuThemeDef" mnemonicParsing="false" onAction="#selectThemeDef" text="Default" />
+                        <MenuItem fx:id="mnuThemeDesktop" mnemonicParsing="false" onAction="#selectThemeDesktop" text="Desktop" />
+                        <MenuItem fx:id="mnuThemeRed" mnemonicParsing="false" onAction="#selectThemeRed" text="Red" />
+                    </items>
+                  </Menu>
+              </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+            </Menu>
+          <Menu fx:id="mnuHelp" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="mnuAbout" mnemonicParsing="false" onAction="#launchAbout" text="About Typewritten..." />
+                  <MenuItem fx:id="mnuHelpFile" mnemonicParsing="false" onAction="#launchHelp" text="Typewritten Help">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="F1" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" BorderPane.alignment="BOTTOM_LEFT">
+         <children>
+            <TextArea fx:id="txtLockedPage" editable="false" focusTraversable="false" minHeight="-Infinity" pickOnBounds="false" prefHeight="422.0" prefRowCount="25" prefWidth="647.0" scrollTop="1.0" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font></TextArea>
+            <TextArea fx:id="txtDocArea" maxHeight="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onInputMethodTextChanged="#fillLockedPage" prefHeight="59.0" prefRowCount="2" prefWidth="698.0" wrapText="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextArea>
+            <CheckBox fx:id="chkAutosave" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Autosave" visible="false" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
