@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -74,19 +75,11 @@
                   </MenuItem>
             </items>
           </Menu>
-            <Menu fx:id="mnuOptions" mnemonicParsing="false" text="Options">
+            <Menu fx:id="mnuTheme" mnemonicParsing="false" text="Themes">
               <items>
-                  <Menu fx:id="mnuTheme" mnemonicParsing="false" text="Theme">
-                    <items>
-                      <MenuItem fx:id="mnuThemeDef" mnemonicParsing="false" onAction="#selectThemeDef" text="Default" />
-                        <MenuItem fx:id="mnuThemeDesktop" mnemonicParsing="false" onAction="#selectThemeDesktop" text="Desktop" />
-                        <MenuItem fx:id="mnuThemeRed" mnemonicParsing="false" onAction="#selectThemeRed" text="Red" />
-                    </items>
-                  </Menu>
+                <MenuItem fx:id="mnuThemeDef" mnemonicParsing="false" onAction="#selectThemeDef" text="Default" />
+                  <MenuItem fx:id="mnuThemeDesktop" mnemonicParsing="false" onAction="#selectThemeDesktop" text="Desktop" />
               </items>
-               <accelerator>
-                  <KeyCodeCombination alt="ANY" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
-               </accelerator>
             </Menu>
           <Menu fx:id="mnuHelp" mnemonicParsing="false" text="Help">
             <items>
@@ -104,21 +97,18 @@
    <center>
       <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" BorderPane.alignment="BOTTOM_LEFT">
          <children>
-            <TextArea fx:id="txtLockedPage" editable="false" focusTraversable="false" minHeight="-Infinity" pickOnBounds="false" prefHeight="422.0" prefRowCount="25" prefWidth="647.0" scrollTop="1.0" wrapText="true">
+            <TextArea fx:id="txtLockedPage" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" prefRowCount="25" scrollTop="1.0" wrapText="true">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font></TextArea>
-            <TextArea fx:id="txtDocArea" maxHeight="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onInputMethodTextChanged="#fillLockedPage" prefHeight="59.0" prefRowCount="2" prefWidth="698.0" wrapText="true">
-               <font>
-                  <Font name="Times New Roman" size="14.0" />
-               </font>
+            <TextField fx:id="txtDocArea" onKeyPressed="#fillLockedPage" prefHeight="26.0" prefWidth="694.0">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </VBox.margin>
-            </TextArea>
+            </TextField>
             <CheckBox fx:id="chkAutosave" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Autosave" visible="false" />
          </children>
          <BorderPane.margin>

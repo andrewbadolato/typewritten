@@ -5,7 +5,16 @@
 	-fx-background-image:url("images/1papertexture.jpg");
 	-fx-background-repeat: repeat repeat; 
 	-fx-text-fill: black;  
-    -fx-background-color: transparent; 
+	-fx-opacity: 1;
+	}
+	
+.text-field {
+	-fx-font-family: "Times New Roman"; 
+	-fx-background-image:url("images/1papertexture.jpg");
+	-fx-background-repeat: repeat repeat; 
+	-fx-text-fill: black;  
+/*    -fx-background-color: transparent;
+    -fx-focus-color: transparent; */
 	}
 
 .text-area .scroll-pane {
@@ -20,9 +29,23 @@
 	-fx-background-color:rgba(240,230,140,0.2);
 	}
 	
+
+.text-field .scroll-pane {
+	-fx-background-color:rgba(240,230,140,0.2);
+	}
+
+.text-field .scroll-pane .viewport{
+	-fx-background-color:rgba(240,230,140,0.2);
+	}
+
+.text-field .scroll-pane .content{
+	-fx-background-color:rgba(240,230,140,0.2);
+	}
+	
 #primaryStage {
 	-fx-background-image:url("images/1wooddesktop.jpg");
     -fx-background-repeat: repeat repeat;  
+    -fx-opacity: 0.75;
 	}
 	
 #lblStatus {
